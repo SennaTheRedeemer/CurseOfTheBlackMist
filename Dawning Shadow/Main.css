@@ -1,7 +1,7 @@
 .MainFrame {
     border-style: solid;
     border-color: darkblue !important;
-    background-color: lightblue !important;
+    background-color: lightcyan !important;
     direction: ltr;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -18,20 +18,32 @@
 }
 .Container {
     padding: 1vh;
+    margin-right: 0;
     border-color: cadetblue;
     background-color: white;
 }
 .Page {
     display: flex;
+    flex-direction: row;
+    margin-right: 0;
     flex-wrap: wrap;
     align-content: space-between;
-    background-color: lightblue !important;
+    background-color: lightcyan !important;
 }
-.Items {
+.Frame {
     border-style: solid;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
+    margin: 1vh;
+    flex-grow: 1;
+}
+.Toolbar {
+    width: 8vw;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: lightblue !important;
 }
 .AllItems {
     border-style: solid;
@@ -39,7 +51,7 @@
     height: 60vh;
     font-size: large;
     padding-right: 15vw;
-    margin: 5px;
+    margin: 1vh;
 }
 .SpecificItems {
     border-style: solid;
@@ -47,7 +59,20 @@
     height: 15vh;
     font-size: large;
     padding-right: 15vw;
-    margin: 5px;
+    margin: 1vh;
+}
+.Button {
+    background-image: url("./Resources/3d-button-png-.png");
+    height: 5vh;
+    background-size:100% 100%;
+    margin: 1vh;
+    color: white;
+}
+.ButtonText {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vh;
 }
 h1 {
     direction: rtl !important;
