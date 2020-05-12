@@ -1,0 +1,19 @@
+.MainFrame {
+    border-style: solid;
+    border-color: darkblue;
+}
+.SearchBar {
+    border-style: solid;
+    border-radius: 16px;
+    border-color: lightblue;
+    display: flex;
+}
+.Greetings {
+    flex-grow: 1;
+}
+.Logo {
+    height: 35px;
+}
+.Container {
+    padding: 1vh;
+}
