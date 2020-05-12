@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 1vh;
     height: 97%;
+    overflow-y: scroll;
 }
 .header {
     border-style: solid;
