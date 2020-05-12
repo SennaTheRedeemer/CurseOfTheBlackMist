@@ -1,88 +1,82 @@
-.MainFrame {
+.mainFrame {
     border-style: solid;
     border-color: darkblue !important;
     background-color: lightcyan !important;
-    direction: ltr;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 1vh;
 }
-.SearchBar {
+.header {
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 2vh;
     display: flex;
 }
-.Greetings {
+.logoPictures {
     flex-grow: 1;
 }
-.Logo {
-    height: 35px;
+.logo {
+    height: 5vh;
 }
-.Container {
+.container {
     padding: 1vh;
     margin-right: 0;
     border-color: cadetblue;
     background-color: white;
 }
-.Page {
+.page {
     display: flex;
     flex-direction: row;
     margin-right: 0;
     flex-wrap: wrap;
-    align-content: space-between;
+    /* align-content: space-between; */
     background-color: lightcyan !important;
 }
-.Frame {
+.frame {
     border-style: solid;
-    border-radius: 30px;
+    border-radius: 4vh;
     display: flex;
     flex-direction: column;
     margin: 1vh;
     flex-grow: 1;
 }
-.Toolbar {
-    width: 8vw;
+.sidebar {
     margin-right: 0;
     display: flex;
     justify-content: center;
     background-color: lightblue !important;
+    width: 10%;
+    max-width: 10vw;
 }
-.AllItems {
+.allItems {
     border-style: solid;
-    width: 65vw;
-    height: 60vh;
     font-size: large;
-    padding-right: 15vw;
+    margin: 1vh;
+    flex-grow: 1;
+}
+.specificItems {
+    border-style: solid;
+    font-size: large;
     margin: 1vh;
 }
-.SpecificItems {
-    border-style: solid;
-    width: 65vw;
-    height: 15vh;
-    font-size: large;
-    padding-right: 15vw;
-    margin: 1vh;
+.itemsContainer {
+    width: 60%;
 }
-.Button {
+.button {
     background-image: url("./Resources/3d-button-png-.png");
     height: 5vh;
     background-size:100% 100%;
     margin: 1vh;
     color: white;
 }
-.ButtonText {
+.buttonText {
     margin: auto;
     display: flex;
     justify-content: center;
     padding-top: 1vh;
 }
-h1 {
-    direction: rtl !important;
-}
-ul {
-    direction: rtl !important;
+body {
+    direction: rtl;
+    margin: 0;
 }
 li {
     padding-top: 1vh;
-}
-p {
-    direction: rtl;
 }
