@@ -27,7 +27,7 @@
     flex-direction: row;
     margin-right: 0;
     flex-wrap: wrap;
-    /* align-content: space-between; */
+    align-content: space-between;
     background-color: lightcyan !important;
 }
 .frame {
