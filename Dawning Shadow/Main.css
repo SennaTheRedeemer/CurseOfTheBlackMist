@@ -78,6 +78,11 @@
     background-size:100% 100%;
     margin: 1vh;
 }
+.button:hover {
+    background-image: url("./Resources/hover\ btn.png");
+    height: 5vh;
+    font-weight: bolder;
+}
 .deleteBtn {
     margin-right: 30vw;
     margin-top: 25vh;
