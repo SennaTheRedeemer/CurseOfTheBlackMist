@@ -44,6 +44,7 @@ $('#animalsTable').append('<tr id="header">');
 shortenedAnimalKeys.forEach((key) => {
     $('#header').append(`<th> ${animalKeysHebrew[key]} </th>`);
 })
+$('#header').append(`<th></th>`);
 
 // Create the table body
 animals.forEach((animal) => {
@@ -63,6 +64,14 @@ animals.forEach((animal) => {
             });
         });
     });
+    $(`#${animal['id']}Row`).append(`<td id="trash${animal['id']}"><i class="far fa-trash-alt"></i></td>`);
+    $( `#trash${animal['id']}`).click(function() {
+        let parent = $(this).closest('tr')
+        parent.toggleClass("strikeout")
+        parent.children().each(function() {
+            $(this).toggleClass( "remove" )
+        })
+    })
 });
 
 

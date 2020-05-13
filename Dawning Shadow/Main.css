@@ -55,13 +55,15 @@
     font-size: large;
     margin: 1vh;
     height: 60vh;
-    padding-right: 250px;
     flex-grow: 1;
 }
 .specificItems {
     border-style: solid;
     font-size: large;
     margin: 1vh;
+}
+.remove {
+    background-color: lightcoral !important;
 }
 .itemsContainer {
     width: 60%;
@@ -79,14 +81,34 @@
     justify-content: center;
     padding-top: 1vh;
 }
-
-table, th, td {
-    border: 1px solid black;
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+table {
+    width: 100%;
+}
+th {
+    height: 5vh;
+}
+td {
+    position: relative;
+    height: 3vh;
+}
+th, td {
+    border: 1px solid cadetblue;
 }
 .hovered {
     background-color: turquoise;
 }
-
+tr.strikeout td:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid rgb(99, 2, 2);
+    width: 100%;
+}
 #clock { 
     border-style: solid;
     border-color: lightblue;

@@ -27,4 +27,4 @@ let animalKeysHebrew =
         legs: 'מספר רגליים'
     };
 let cages = ['ים', 'ספארי', 'פינת ליטוף'];
-let shortenedAnimalKeys = ['id', 'name'];
+let shortenedAnimalKeys = ['id', 'name', 'cage', 'legs'];
