@@ -42,6 +42,9 @@
     margin: 1vh;
     flex-grow: 1;
 }
+.hidden {
+    display: none;
+}
 .sidebar {
     margin-right: 0;
     display: flex;
@@ -56,6 +59,7 @@
     margin: 1vh;
     height: 60vh;
     flex-grow: 1;
+    visibility: hidden;
 }
 .specificItems {
     border-style: solid;
@@ -73,7 +77,14 @@
     height: 5vh;
     background-size:100% 100%;
     margin: 1vh;
-    color: white;
+}
+.deleteBtn {
+    margin-right: 30vw;
+    margin-top: 25vh;
+    height: 5vh;
+    width: 20vw;
+    background-color: lightblue;
+    font-weight: bolder;
 }
 .buttonText {
     margin: auto;
@@ -87,19 +98,24 @@ table {
 }
 table {
     width: 100%;
+    background-color: lightcyan;
 }
 th {
     height: 5vh;
+    background-color: lightblue;
 }
 td {
     position: relative;
     height: 3vh;
 }
+.show {
+    visibility: visible !important;
+}
 th, td {
     border: 1px solid cadetblue;
 }
 .hovered {
-    background-color: turquoise;
+    background-color: lightskyblue !important;
 }
 tr.strikeout td:before {
     content: " ";

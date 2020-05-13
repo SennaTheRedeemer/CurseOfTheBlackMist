@@ -17,7 +17,7 @@
             </div>
             <div class="page container">
                 <div class="frame sidebar container">
-                    <div class="button">
+                    <div class="button" id="animals">
                         <p class="buttonText">חיות</p>
                     </div>
                     <div class="button">
@@ -34,8 +34,9 @@
                     </div>
                 </div>
                 <div class="frame itemsContainer container">
-                    <div class="allItems container">
+                    <div class="allItems container" id="animalsSection">
                         <table id="animalsTable"></table>
+                        <button type="submit" id="deleteAnimals" class="hidden deleteBtn">מחק חיות</button>
                     </div>
                     <div class="specificItems container">
                         <h1 id="chosenAnimalName">החיה הנבחרת:</h1>

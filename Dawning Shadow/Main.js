@@ -1,5 +1,6 @@
 let intervalID = null;
 let isClockOn = false;
+let countToTrash = 0;
 
 window.onload = () => {
     changeTime();
@@ -38,54 +39,91 @@ const padZeros = (time) => {
     if (time < 10) {time = "0" + time;}  // add zero in front of numbers < 10
     return time;
 }
-
-// Create the table headers
-$('#animalsTable').append('<tr id="header">');
-shortenedAnimalKeys.forEach((key) => {
-    $('#header').append(`<th> ${animalKeysHebrew[key]} </th>`);
-})
-$('#header').append(`<th></th>`);
-
-// Create the table body
-animals.forEach((animal) => {
-    $('#animalsTable').append(`<tr id="${animal['id']}Row">`);
+const createTable = () => {
+    $('#animalsTable').empty();
+    // Create the table headers
+    $('#animalsTable').append('<tr id="header">');
     shortenedAnimalKeys.forEach((key) => {
-        $(`#${animal['id']}Row`).append(`<td name="${animal["id"]}"> ${animal[key]} </td>`);
-        $(`td[name =${animal["id"]}]`).click(() => {
-            // Set the name of the chosen animal 
-            $('#chosenAnimalName').text(`${animal["name"]}`);
-            // Add description of the chosen animal
-            $('#chosenAnimalDescription').text(() => {
-                let description = '';
-                displayAnimalKeys.forEach((key) => {
-                    description += `${animalKeysHebrew[key]}: ${animal[key]}, `;
-                })
-                return description.substring(0, description.length - 2) + '.';
+        $('#header').append(`<th> ${animalKeysHebrew[key]} </th>`);
+    })
+    $('#header').append(`<th></th>`);
+
+    // Create the table body
+    animals.forEach((animal) => {
+        $('#animalsTable').append(`<tr id="${animal['id']}Row">`);
+        shortenedAnimalKeys.forEach((key) => {
+            $(`#${animal['id']}Row`).append(`<td name="${animal["id"]}"> ${animal[key]} </td>`);
+            $(`td[name =${animal["id"]}]`).click(() => {
+                // Set the name of the chosen animal 
+                $('#chosenAnimalName').text(`${animal["name"]}`);
+                // Add description of the chosen animal
+                $('#chosenAnimalDescription').text(() => {
+                    let description = '';
+                    displayAnimalKeys.forEach((key) => {
+                        description += `${animalKeysHebrew[key]}: ${animal[key]}, `;
+                    })
+                    return description.substring(0, description.length - 2) + '.';
+                });
             });
         });
-    });
-    $(`#${animal['id']}Row`).append(`<td id="trash${animal['id']}"><i class="far fa-trash-alt"></i></td>`);
-    $( `#trash${animal['id']}`).click(function() {
-        let parent = $(this).closest('tr')
-        parent.toggleClass("strikeout")
-        parent.children().each(function() {
-            $(this).toggleClass( "remove" )
+        $(`#${animal['id']}Row`).append(`<td id="trash${animal['id']}"><i class="far fa-trash-alt"></i></td>`);
+        $( `#trash${animal['id']}`).click(function() {
+            let parent = $(this).closest('tr');
+            parent.toggleClass("strikeout");
+            if($(parent).hasClass( "strikeout" )) {
+                countToTrash++;
+            }
+            else countToTrash--;
+            checkTrashButton();
+            parent.children().each(function() {
+                $(this).toggleClass( "remove" );
+            })
         })
+    });
+    $("td").not('').hover(
+        function() {
+            let parent = $(this).closest('tr')
+            parent.children().each(function() {
+                $(this).addClass( "hovered" );
+            })
+        }, 
+        function() {
+            let parent = $(this).parent()
+            parent.children().each(function() {
+                $(this).removeClass( "hovered" );
+            })
+        }
+    );
+};
+
+const checkTrashButton = () => {
+    if(countToTrash > 0) {
+        $('#deleteAnimals').addClass( "show" );
+        $('#deleteAnimals').removeClass( "hidden" );
+    }
+    else {
+        $('#deleteAnimals').addClass( "hidden" );
+        $('#deleteAnimals').removeClass( "show" );
+    }
+}
+
+$("#animals").click(function() {
+    $('#animalsTable').empty();
+    $("#animalsSection").toggleClass("show");
+    if(!($("#animalsSection").hasClass("show"))) {
+        $('#deleteAnimals').addClass( "hidden" );
+        $('#deleteAnimals').removeClass( "show" );
+    }
+    else {
+        createTable();
+    }
+})
+
+$("#deleteAnimals").click(function() {
+    $(".strikeout").each(function() {
+       let deleteAnimalID = ($(this).attr('id')).replace("Row", '');
+       animals.pop(animals.find(animal => animal.id == deleteAnimalID));
     })
+    createTable();
 });
 
-
-$("td").not('').hover(
-    function() {
-        let parent = $(this).closest('tr')
-        parent.children().each(function() {
-            $(this).addClass( "hovered" )
-        })
-    }, 
-    function() {
-        let parent = $(this).parent()
-        parent.children().each(function() {
-            $(this).removeClass( "hovered" )
-        })
-    }
-  );
