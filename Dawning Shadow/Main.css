@@ -85,9 +85,12 @@
     background-color: lightcyan;
     margin: 5;
     width: 5vw;
-    display: flex;
     justify-content: center;
     padding-top: 1vh;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 #clockButton { 
     border-style: solid;
