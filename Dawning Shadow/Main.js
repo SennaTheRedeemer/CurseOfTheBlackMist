@@ -82,7 +82,7 @@ const createTable = () => {
     });
     $("td").not('').hover(
         function() {
-            let parent = $(this).closest('tr')
+            let parent = $(this).closest('tr');
             parent.children().each(function() {
                 $(this).addClass( "hovered" );
             })
@@ -96,6 +96,7 @@ const createTable = () => {
     );
 };
 
+// Toggle trash button visability
 const checkTrashButton = () => {
     if(countToTrash > 0) {
         $('#deleteAnimals').addClass( "show" );
@@ -107,22 +108,19 @@ const checkTrashButton = () => {
     }
 }
 
+// Toggle animal section visability
 $("#animals").click(function() {
     $('#animalsTable').empty();
     $("#animalsSection").toggleClass("show");
-    if(!($("#animalsSection").hasClass("show"))) {
-        $('#deleteAnimals').addClass( "hidden" );
-        $('#deleteAnimals').removeClass( "show" );
-    }
-    else {
-        createTable();
-    }
+    countToTrash = 0;
+    createTable();
+    checkTrashButton();
 })
 
 $("#deleteAnimals").click(function() {
     $(".strikeout").each(function() {
-       let deleteAnimalID = ($(this).attr('id')).replace("Row", '');
-       animals.pop(animals.find(animal => animal.id == deleteAnimalID));
+       let deleteAnimalID = parseInt($(this).attr('id'));
+       animals = animals.filter((animal) => {return animal.id != deleteAnimalID;});
     })
     createTable();
 });
