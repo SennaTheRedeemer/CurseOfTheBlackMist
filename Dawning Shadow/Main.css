@@ -79,6 +79,14 @@
     justify-content: center;
     padding-top: 1vh;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
+.hovered {
+    background-color: turquoise;
+}
+
 #clock { 
     border-style: solid;
     border-color: lightblue;

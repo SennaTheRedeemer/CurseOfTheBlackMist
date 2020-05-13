@@ -18,10 +18,10 @@
             <div class="page container">
                 <div class="frame sidebar container">
                     <div class="button">
-                        <p class="buttonText">משהו 1</p>
+                        <p class="buttonText">חיות</p>
                     </div>
                     <div class="button">
-                        <p class="buttonText">משהו 2</p>
+                        <p class="buttonText">חיה חדשה</p>
                     </div>
                     <div class="button">
                         <p class="buttonText">משהו 3</p>
@@ -35,22 +35,22 @@
                 </div>
                 <div class="frame itemsContainer container">
                     <div class="allItems container">
-                        <h1>כל הפריטים:</h1>
-                        <ul>
-                            <li>פריט 1</li>
-                            <li>פריט 2</li>
-                            <li>פריט 3</li>
-                            <li>פריט 4</li>
-                            <li>פריט 5</li>
-                        </ul> 
+                        <table id="animalsTable"></table>
                     </div>
                     <div class="specificItems container">
-                        <h1>פרטים ספציפיים:</h1>
-                        <p>שם פריט, שם פריט, שם פריט, שם פריט</p>
+                        <h1 id="chosenAnimalName">החיה הנבחרת:</h1>
+                        <p id="chosenAnimalDescription">תיאור החיה הנבחרת</p>
                     </div>
                 </div>
             </div>
         </div>
+        <script
+			  src="https://code.jquery.com/jquery-3.5.1.js"
+			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+              crossorigin="anonymous">
+        </script>
+        <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+        <script src="./Zoo.js"></script> 
         <script src="./Main.js"></script> 
         <script src="https://kit.fontawesome.com/acf62fc325.js" crossorigin="anonymous"></script>
     </body>
