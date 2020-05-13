@@ -97,12 +97,11 @@
     border-color: lightblue;
     background-color: lightcyan;
     margin: 5;
-    width: 5vw;
-    display: flex;
     justify-content: center;
     padding-top: 1vh;
     background-color: lightgreen;
-    border-radius: 50px;
+    border-radius: 20px;
+    overflow: auto; 
 }
 body {
     direction: rtl;
