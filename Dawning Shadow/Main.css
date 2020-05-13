@@ -12,6 +12,9 @@
     border-radius: 2vh;
     display: flex;
 }
+#animalsSection {
+    visibility: hidden;
+}
 .logoPictures {
     flex-grow: 1;
     display: flex;
@@ -43,7 +46,7 @@
     flex-grow: 1;
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
 .sidebar {
     margin-right: 0;
@@ -59,7 +62,6 @@
     margin: 1vh;
     height: 60vh;
     flex-grow: 1;
-    visibility: hidden;
 }
 .specificItems {
     border-style: solid;
