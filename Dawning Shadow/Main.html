@@ -45,6 +45,17 @@
                 </div>
                 <div class="frame itemsContainer form container" id="newAnimalSection">
                     <div class="allItems container">
+                        <form id="newAnimalForm">
+                            <label for="id">מספר חיה:</label><br>
+                            <input type="number" name="id"> <br>
+                            <label for="name">שם החיה:</label><br>
+                            <input type="text" name="name"><br>
+                            <label for="cage">כלוב:</label><br>
+                            <select id="cage" name="cage"></select><br>
+                            <label for="legs">רגליים</label><br>
+                            <input type="number" name="legs"> <br>
+                        </form>
+                        <button onclick="addAnimal()">הוסף חיה</button>
                     </div>
                 </div>
             </div>

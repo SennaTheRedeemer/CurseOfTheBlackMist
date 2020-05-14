@@ -4,6 +4,7 @@ let countToTrash = 0;
 
 window.onload = () => {
     changeTime();
+    fillCagesSelect();
 }
 
 const changeTime = () => {
@@ -105,6 +106,30 @@ const checkTrashButton = () => {
     else {
         $('#deleteAnimals').addClass( "hidden" );
         $('#deleteAnimals').removeClass( "show" );
+    }
+}
+
+const fillCagesSelect = () => {
+    cages.forEach((cage) => {
+        let option = new Option(cage, cage);
+        $(option).html(cage);
+        $("#cage").append(option);
+    })
+}
+
+const addAnimal = () => {
+    let newAnimal = {};
+    let newAnimalFields = $('#newAnimalForm').serializeArray();
+    newAnimalFields.forEach((field) => {
+        newAnimal[field.name] = field.value;
+    });
+    let takenIDs = animals.map(({ id }) => id);
+    if(takenIDs.includes(parseInt(newAnimal.id))) {
+        alert("מזהה החיה הזה כבר משומש לחיה אחרת. אנא נסה שוב.");
+    }
+    else {
+        animals.push(newAnimal);
+        $("#animals").trigger( "click" );
     }
 }
 
