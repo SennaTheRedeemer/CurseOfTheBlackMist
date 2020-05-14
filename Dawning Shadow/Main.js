@@ -152,6 +152,8 @@ $("#deleteAnimals").click(function() {
        animals = animals.filter((animal) => {return animal.id != deleteAnimalID;});
     })
     createTable();
+    countToTrash = 0;
+    checkTrashButton();
 });
 
 $("#addAnimal").click( function() {
