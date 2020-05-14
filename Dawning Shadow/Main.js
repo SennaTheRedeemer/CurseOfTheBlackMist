@@ -181,7 +181,7 @@ $("#deleteAnimals").click(function() {
 $("#addAnimal").click( function() {
     $('#animalsTable').empty();
     $("#animalsSection").removeClass("show");
-    $("#newAnimalSection").toggleClass("show");
+    $("#newAnimalSection").addClass("show");
     countToTrash = 0;
 });
 
