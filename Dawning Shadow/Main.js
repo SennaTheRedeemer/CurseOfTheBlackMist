@@ -112,6 +112,9 @@ const checkTrashButton = () => {
 $("#animals").click(function() {
     $('#animalsTable').empty();
     $("#animalsSection").toggleClass("show");
+    if($("#animalsSection").hasClass("show")){
+        $("#newAnimalSection").removeClass("show");
+    }
     countToTrash = 0;
     createTable();
     checkTrashButton();
@@ -123,5 +126,12 @@ $("#deleteAnimals").click(function() {
        animals = animals.filter((animal) => {return animal.id != deleteAnimalID;});
     })
     createTable();
+});
+
+$("#addAnimal").click( function() {
+    $('#animalsTable').empty();
+    $("#animalsSection").removeClass("show");
+    $("#newAnimalSection").toggleClass("show");
+    countToTrash = 0;
 });
 
