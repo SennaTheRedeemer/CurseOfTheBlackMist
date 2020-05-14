@@ -124,7 +124,8 @@ const addAnimal = () => {
         newAnimal[field.name] = field.value;
     });
     let takenIDs = animals.map(({ id }) => id);
-    if(takenIDs.includes(parseInt(newAnimal.id))) {
+    newAnimal.id = parseInt(newAnimal.id);
+    if(takenIDs.includes(newAnimal.id)) {
         alert("מזהה החיה הזה כבר משומש לחיה אחרת. אנא נסה שוב.");
     }
     else {
