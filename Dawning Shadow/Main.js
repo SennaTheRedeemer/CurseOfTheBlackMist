@@ -1,5 +1,6 @@
 let intervalID = null;
 let isClockOn = false;
+let selectedAnimalID = null;
 let countToTrash = 0;
 
 window.onload = () => {
@@ -54,7 +55,16 @@ const createTable = () => {
         $('#animalsTable').append(`<tr id="${animal['id']}Row">`);
         shortenedAnimalKeys.forEach((key) => {
             $(`#${animal['id']}Row`).append(`<td name="${animal["id"]}"> ${animal[key]} </td>`);
-            $(`td[name =${animal["id"]}]`).click(() => {
+            $(`td[name =${animal["id"]}]`).click(function() {
+
+                // Color the selected row
+                $("#animalsTable").find('*').removeClass('selectedRow')
+                let parent = $(this).closest('tr');
+                parent.children().each(function() {
+                    $(this).addClass( "selectedRow" );
+                })
+
+                selectedAnimalID = animal["id"];
                 // Set the name of the chosen animal 
                 $('#chosenAnimalName').text(`${animal["name"]}`);
                 // Add description of the chosen animal
@@ -71,17 +81,20 @@ const createTable = () => {
         $( `#trash${animal['id']}`).click(function() {
             let parent = $(this).closest('tr');
             parent.toggleClass("strikeout");
-            if($(parent).hasClass( "strikeout" )) {
+            parent.toggleClass("toDelete");
+            if($(parent).hasClass( "toDelete" )) {
                 countToTrash++;
             }
-            else countToTrash--;
+            else {
+                countToTrash--
+            };
             checkTrashButton();
             parent.children().each(function() {
                 $(this).toggleClass( "remove" );
             })
         })
     });
-    $("td").not('').hover(
+    $("td").hover(
         function() {
             let parent = $(this).closest('tr');
             parent.children().each(function() {
@@ -123,10 +136,16 @@ const addAnimal = () => {
     newAnimalFields.forEach((field) => {
         newAnimal[field.name] = field.value;
     });
-    let takenIDs = animals.map(({ id }) => id);
+    let takenIDs = animals.map(({ id }) => id); // filtrer 
     newAnimal.id = parseInt(newAnimal.id);
-    if(takenIDs.includes(newAnimal.id)) {
+    if(animals.filter((animal) => {return animal.id === newAnimal.id}).length > 0) {
         alert("מזהה החיה הזה כבר משומש לחיה אחרת. אנא נסה שוב.");
+    }
+    else if (newAnimal.name == "") {
+        alert("אנא מלא שם לחיה");
+    }
+    else if (newAnimal.legs < 0) {
+        alert("מספר רגליים צריך להיות חיובי או 0");
     }
     else {
         animals.push(newAnimal);
@@ -137,18 +156,21 @@ const addAnimal = () => {
 // Toggle animal section visability
 $("#animals").click(function() {
     $('#animalsTable').empty();
-    $("#animalsSection").toggleClass("show");
-    if($("#animalsSection").hasClass("show")){
-        $("#newAnimalSection").removeClass("show");
-    }
+    $("#animalsSection").addClass("show");
+    $("#newAnimalSection").removeClass("show");
     countToTrash = 0;
     createTable();
     checkTrashButton();
 })
 
 $("#deleteAnimals").click(function() {
-    $(".strikeout").each(function() {
+    $(".toDelete").each(function() {
        let deleteAnimalID = parseInt($(this).attr('id'));
+       // If the selected detailed animal is to be deleted, empty details.
+       if(deleteAnimalID == selectedAnimalID) {
+            $('#chosenAnimalName').text("החיה הנבחרת:");
+            $('#chosenAnimalDescription').text("תיאור החיה הנבחרת");
+       }
        animals = animals.filter((animal) => {return animal.id != deleteAnimalID;});
     })
     createTable();

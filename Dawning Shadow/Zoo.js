@@ -18,13 +18,13 @@ let animals = [
         legs: 0
     }
 ];
-let displayAnimalKeys = ['name', 'cage', 'legs'];
-let animalKeysHebrew = 
+const displayAnimalKeys = ['name', 'cage', 'legs'];
+const animalKeysHebrew = 
     {
         id: 'מספר החיה',
         name: 'שם החיה',
         cage: 'כלוב',
         legs: 'מספר רגליים'
     };
-let cages = ['ים', 'ספארי', 'פינת ליטוף'];
-let shortenedAnimalKeys = ['id', 'name', 'cage', 'legs'];
+const cages = ['ים', 'ספארי', 'פינת ליטוף'];
+const shortenedAnimalKeys = ['id', 'name', 'cage', 'legs'];

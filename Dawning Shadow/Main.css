@@ -18,6 +18,9 @@
 #newAnimalSection {
     visibility: hidden;
 }
+.selectedRow {
+    background-color: lightblue !important;
+}
 .logoPictures {
     flex-grow: 1;
     display: flex;
@@ -69,6 +72,7 @@
     margin: 1vh;
     height: 60vh;
     flex-grow: 1;
+    overflow: scroll;
 }
 .specificItems {
     border-style: solid;
